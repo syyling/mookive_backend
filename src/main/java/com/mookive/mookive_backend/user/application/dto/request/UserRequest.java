@@ -1,4 +1,4 @@
-package com.mookive.mookive_backend.user.application.dto;
+package com.mookive.mookive_backend.user.application.dto.request;
 
 import lombok.Builder;
 import lombok.Getter;

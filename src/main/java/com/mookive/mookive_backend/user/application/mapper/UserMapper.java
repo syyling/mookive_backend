@@ -1,7 +1,7 @@
 package com.mookive.mookive_backend.user.application.mapper;
 
-import com.mookive.mookive_backend.user.application.dto.UserRequest;
-import com.mookive.mookive_backend.user.application.dto.UserResponse;
+import com.mookive.mookive_backend.user.application.dto.request.UserRequest;
+import com.mookive.mookive_backend.user.application.dto.response.UserResponse;
 import com.mookive.mookive_backend.user.domain.entity.User;
 
 public class UserMapper {
