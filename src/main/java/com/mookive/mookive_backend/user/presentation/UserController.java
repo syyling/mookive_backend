@@ -1,20 +1,26 @@
 package com.mookive.mookive_backend.user.presentation;
 
 import com.mookive.mookive_backend.user.application.dto.UserRequest;
+import com.mookive.mookive_backend.user.application.dto.UserResponse;
 import com.mookive.mookive_backend.user.application.service.UserCreateService;
+import com.mookive.mookive_backend.user.application.service.UserGetService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
 public class UserController {
 
     private final UserCreateService userCreateService;
+    private final UserGetService userGetService;
 
     @PostMapping("/user/create")
-    void createUser(@RequestBody UserRequest.UserCreateRequest userCreateRequest) {
+    public void createUser(@RequestBody UserRequest.UserCreateRequest userCreateRequest) {
         userCreateService.createUser(userCreateRequest);
+    }
+
+    @GetMapping("/user")
+    public UserResponse.UserInfoResponse getUser(@RequestParam Long userId) {
+        return userGetService.getUser(userId);
     }
 }
