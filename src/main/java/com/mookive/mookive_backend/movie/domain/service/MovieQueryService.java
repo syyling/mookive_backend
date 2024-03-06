@@ -14,4 +14,9 @@ public class MovieQueryService {
     public Movie findByTitle(String title) {
         return movieRepository.findByTitle(title);
     }
+
+    public Movie findById(Long id) {
+        return movieRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Movie not found"));
+    }
 }
