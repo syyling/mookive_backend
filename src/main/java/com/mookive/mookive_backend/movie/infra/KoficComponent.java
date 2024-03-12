@@ -1,4 +1,4 @@
-package com.mookive.mookive_backend.movie.application.infra;
+package com.mookive.mookive_backend.movie.infra;
 
 
 import org.springframework.stereotype.Component;
@@ -11,5 +11,5 @@ import org.springframework.web.service.annotation.HttpExchange;
 public interface KoficComponent {
 
     @GetExchange()
-    String findMovieByTitle(@RequestParam String key, @RequestParam String movieNm);
+    String findMovieByTitleAndYear(@RequestParam String key, @RequestParam String movieNm, @RequestParam String openStartDt);
 }

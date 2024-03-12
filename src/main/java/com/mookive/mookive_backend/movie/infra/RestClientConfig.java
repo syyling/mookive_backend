@@ -1,5 +1,6 @@
-package com.mookive.mookive_backend.movie.application.infra;
+package com.mookive.mookive_backend.movie.infra;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestClient;
@@ -10,15 +11,8 @@ import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 @Configuration
 public class RestClientConfig {
 
-    @Bean
-    public KmdbComponent kmdbService() {
-        RestClient restClient = RestClient.builder()
-                .baseUrl("http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp").build();
-
-        RestClientAdapter adapter = RestClientAdapter.create(restClient);
-        HttpServiceProxyFactory factory = HttpServiceProxyFactory.builderFor(adapter).build();
-        return factory.createClient(KmdbComponent.class);
-    }
+    @Value("${tmdb.token}")
+    private String token;
 
     @Bean
     public KoficComponent koficService() {
@@ -28,5 +22,18 @@ public class RestClientConfig {
         RestClientAdapter adapter = RestClientAdapter.create(restClient);
         HttpServiceProxyFactory factory = HttpServiceProxyFactory.builderFor(adapter).build();
         return factory.createClient(KoficComponent.class);
+    }
+
+    @Bean
+    public TmdbComponent tmdbService() {
+        RestClient restClient = RestClient.builder()
+                .baseUrl("https://api.themoviedb.org/3/movie/{movie_id}")
+                .defaultHeader("Authorization", token)
+                .defaultHeader("accept", "application/json")
+                .build();
+        RestClientAdapter adapter = RestClientAdapter.create(restClient);
+        HttpServiceProxyFactory factory = HttpServiceProxyFactory.builderFor(adapter).build();
+        return factory.createClient(TmdbComponent.class);
+
     }
 }

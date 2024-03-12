@@ -12,6 +12,8 @@ public class MovieMapper {
                 .genre(movie.getGenre())
                 .year(movie.getYear())
                 .plot(movie.getPlot())
+                .nation(movie.getNation())
+                .poster(movie.getPoster())
                 .build();
     }
 }
