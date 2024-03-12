@@ -15,8 +15,8 @@ public class MovieController {
 
     private final MovieGetService movieGetService;
 
-    @GetMapping("/movie/info")
-    public MovieResponse.MovieDetailResponse getMovieInfo(@RequestParam String title) throws JSONException {
-        return movieGetService.getMovieInfo(title);
+    @GetMapping("/movie/detail")
+    public MovieResponse.MovieDetailResponse getMovieDetail(@RequestParam String tmdbId) throws JSONException {
+        return movieGetService.getMovieDetail(tmdbId);
     }
 }

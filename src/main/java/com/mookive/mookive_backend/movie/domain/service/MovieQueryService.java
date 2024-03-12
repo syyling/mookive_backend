@@ -19,4 +19,8 @@ public class MovieQueryService {
         return movieRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Movie not found"));
     }
+
+    public Movie findByTmdbId(String tmdbId) {
+        return movieRepository.findByTmdbId(tmdbId);
+    }
 }
