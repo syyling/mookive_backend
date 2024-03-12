@@ -19,13 +19,21 @@ public class Movie {
     private String director;
     private String genre;
     private String plot;
+    private String poster;
+    private String nation;
+    private String tmdbId;
+
 
     @Builder
-    public Movie(String title, String year, String director, String genre, String plot) {
+    public Movie(String title, String year, String director, String genre,
+                 String plot, String poster, String nation, String tmdbId) {
         this.title = title;
         this.year = year;
         this.director = director;
         this.genre = genre;
         this.plot = plot;
+        this.poster = poster;
+        this.nation = nation;
+        this.tmdbId = tmdbId;
     }
 }
