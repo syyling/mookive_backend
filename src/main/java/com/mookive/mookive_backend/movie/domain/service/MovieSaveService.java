@@ -11,7 +11,7 @@ public class MovieSaveService {
 
     private final MovieRepository movieRepository;
 
-    public void saveMovie(Movie movie) {
+    public void save(Movie movie) {
         movieRepository.save(movie);
     }
 
