@@ -17,4 +17,8 @@ public class ReviewQueryService {
         return reviewRepository.findById(reviewId)
                 .orElseThrow(() ->  new IllegalArgumentException("Review not found"));
     }
+
+    public Review findByUserIdAndMovieId(Long userId, Long movieId) {
+        return reviewRepository.findByUserIdAndMovieId(userId, movieId);
+    }
 }
