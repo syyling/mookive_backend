@@ -1,11 +1,11 @@
 package com.mookive.mookive_backend.ranking.presentation;
 
 import com.mookive.mookive_backend.ranking.applicaiton.dto.request.RankingRequest;
+import com.mookive.mookive_backend.ranking.applicaiton.dto.response.RankingResponse;
 import com.mookive.mookive_backend.ranking.applicaiton.service.RankingCreateService;
+import com.mookive.mookive_backend.ranking.applicaiton.service.RankingGetService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,9 +14,15 @@ import java.util.List;
 public class RankingController {
 
     private final RankingCreateService rankingCreateService;
+    private final RankingGetService rankingGetService;
 
     @PostMapping("/ranking")
-    public void createRank(@RequestBody List<RankingRequest.RankingCreateRequest> rankingCreateRequestList) {
-        rankingCreateService.createRank(rankingCreateRequestList);
+    public void createRanking(@RequestBody List<RankingRequest.RankingCreateRequest> rankingCreateRequestList) {
+        rankingCreateService.createRanking(rankingCreateRequestList);
+    }
+
+    @GetMapping("/ranking/{userId}")
+    public List<RankingResponse.RankingInfoResponse> getRanking(@PathVariable Long userId) {
+        return rankingGetService.getRanking(userId);
     }
 }
