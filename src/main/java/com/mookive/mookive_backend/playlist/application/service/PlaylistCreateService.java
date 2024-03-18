@@ -6,11 +6,13 @@ import com.mookive.mookive_backend.playlist.domain.entity.Playlist;
 import com.mookive.mookive_backend.playlist.domain.service.PlaylistSaveService;
 import com.mookive.mookive_backend.user.domain.entity.User;
 import com.mookive.mookive_backend.user.domain.service.UserQueryService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class PlaylistCreateService {
 
     private final UserQueryService userQueryService;

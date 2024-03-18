@@ -6,14 +6,14 @@ import com.mookive.mookive_backend.movie.domain.entity.Movie;
 import com.mookive.mookive_backend.movie.domain.service.MovieQueryService;
 import com.mookive.mookive_backend.movie.domain.service.MovieSaveService;
 import com.mookive.mookive_backend.movie.infra.MovieSearchService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.json.JSONException;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-@Slf4j
+@Transactional
 public class MovieGetService {
 
     private final MovieQueryService movieQueryService;

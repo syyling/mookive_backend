@@ -4,6 +4,7 @@ import com.mookive.mookive_backend.ranking.applicaiton.dto.response.RankingRespo
 import com.mookive.mookive_backend.ranking.applicaiton.mapper.RankingMapper;
 import com.mookive.mookive_backend.ranking.domain.entity.Ranking;
 import com.mookive.mookive_backend.ranking.domain.service.RankingQueryService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class RankingGetService {
 
     private final RankingQueryService rankingQueryService;
