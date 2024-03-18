@@ -21,7 +21,7 @@ public class RankingCreateService {
     private final MovieQueryService movieQueryService;
     private final UserQueryService userQueryService;
 
-    public void createRank(List<RankingRequest.RankingCreateRequest> rankCreateRequestList) {
+    public void createRanking(List<RankingRequest.RankingCreateRequest> rankCreateRequestList) {
 
         for(RankingRequest.RankingCreateRequest rankingCreateRequest : rankCreateRequestList) {
             Long movieId = rankingCreateRequest.getMovieId();
