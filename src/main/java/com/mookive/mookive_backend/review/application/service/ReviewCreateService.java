@@ -12,6 +12,7 @@ import com.mookive.mookive_backend.review.domain.entity.Review;
 import com.mookive.mookive_backend.review.domain.service.ReviewSaveService;
 import com.mookive.mookive_backend.user.domain.entity.User;
 import com.mookive.mookive_backend.user.domain.service.UserQueryService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class ReviewCreateService {
 
     private final MovieQueryService movieQueryService;

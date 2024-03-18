@@ -6,6 +6,7 @@ import com.mookive.mookive_backend.review.application.dto.response.ReviewRespons
 import com.mookive.mookive_backend.review.application.mapper.ReviewMapper;
 import com.mookive.mookive_backend.review.domain.entity.Review;
 import com.mookive.mookive_backend.review.domain.service.ReviewQueryService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class ReviewGetService {
 
     private final ReviewQueryService reviewQueryService;

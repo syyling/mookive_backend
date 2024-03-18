@@ -8,6 +8,7 @@ import com.mookive.mookive_backend.movieInPlaylist.domain.entity.MovieInPlaylist
 import com.mookive.mookive_backend.movieInPlaylist.domain.service.MovieInPlaylistSaveService;
 import com.mookive.mookive_backend.playlist.domain.entity.Playlist;
 import com.mookive.mookive_backend.playlist.domain.service.PlaylistQueryService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class MovieInPlaylistCreateService {
 
     private final PlaylistQueryService playlistQueryService;
