@@ -8,4 +8,6 @@ import java.util.List;
 public interface MovieInPlaylistRepository extends JpaRepository<MovieInPlaylist, Long> {
 
     List<MovieInPlaylist> findByPlaylistId(Long playlistId);
+
+    void deleteByPlaylistIdAndMovieId(Long playlistId, Long movieId);
 }
