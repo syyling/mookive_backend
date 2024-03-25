@@ -18,4 +18,17 @@ public class PlaylistRequest {
             this.name = name;
         }
     }
+
+    @Getter
+    @NoArgsConstructor
+    public static class PlaylistUpdateRequest {
+        private Long playlistId;
+        private String name;
+
+        @Builder
+        public PlaylistUpdateRequest(Long playlistId, String name) {
+            this.playlistId = playlistId;
+            this.name = name;
+        }
+    }
 }
