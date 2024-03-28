@@ -5,10 +5,11 @@ import com.mookive.mookive_backend.review.domain.entity.Review;
 
 public class KeywordMapper {
 
-    public static Keyword mapToKeyword(Review review, String word) {
+    public static Keyword mapToKeyword(Review review, String word, Long movieId) {
         return Keyword.builder()
                 .review(review)
                 .word(word)
+                .movieId(movieId)
                 .build();
     }
 }
