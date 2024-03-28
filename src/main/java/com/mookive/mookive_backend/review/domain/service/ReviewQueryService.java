@@ -6,6 +6,8 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -18,7 +20,8 @@ public class ReviewQueryService {
                 .orElseThrow(() ->  new IllegalArgumentException("Review not found"));
     }
 
-    public Review findByUserIdAndMovieId(Long userId, Long movieId) {
+    public Optional<Review> findByUserIdAndMovieId(Long userId, Long movieId) {
         return reviewRepository.findByUserIdAndMovieId(userId, movieId);
     }
+
 }

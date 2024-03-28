@@ -20,10 +20,12 @@ public class Keyword {
     private Review review;
 
     private String word;
+    private Long movieId;
 
     @Builder
-    public Keyword(Review review, String word) {
+    public Keyword(Review review, String word, Long movieId) {
         this.review = review;
         this.word = word;
+        this.movieId = movieId;
     }
 }

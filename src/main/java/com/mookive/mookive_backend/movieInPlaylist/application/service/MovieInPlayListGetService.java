@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -32,8 +33,11 @@ public class MovieInPlayListGetService {
         List<MovieInPlaylistResponse.MovieInPlaylistDefaultResponse> movieInPlaylistDefaultResponseList = movieInPlaylistList.stream().map(movieInPlaylist ->
         {
             Long movieId = movieInPlaylist.getMovie().getId();
-            Review review = reviewQueryService.findByUserIdAndMovieId(userId, movieId);
-            String rating = review != null ? review.getRating() : null;
+            Optional<Review> review = reviewQueryService.findByUserIdAndMovieId(userId, movieId);
+            String rating = null;
+            if(review.isPresent()) {
+                rating = review.get().getRating();
+            }
             return MovieInPlaylistMapper.mapToMovieInPlaylistDefaultResponse(movieInPlaylist, rating);
         }).collect(Collectors.toList());
 

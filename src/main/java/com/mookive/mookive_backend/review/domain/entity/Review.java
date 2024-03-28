@@ -39,4 +39,10 @@ public class Review {
         this.user = user;
         this.movie = movie;
     }
+
+    public void updateReview(String rating, String text, LocalDate date) {
+        this.rating = rating;
+        this.text = text;
+        this.date = date;
+    }
 }
